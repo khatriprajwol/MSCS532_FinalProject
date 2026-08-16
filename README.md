@@ -14,19 +14,26 @@ Two from-scratch data structures with the same interface:
 
 `src/benchmark.py` times sequential traversal and random-index access for
 both structures across input sizes from 1,000 to 500,000 elements and
-writes `results/benchmark_results.csv` and `results/benchmark_chart.png`.
+writes `results/benchmark_results.csv`. `src/generate_chart.py` reads that
+CSV and produces `results/benchmark_chart.png`.
 
 ## Run it
 
 ```
 cd src
 python3 benchmark.py
+python3 generate_chart.py
 ```
+
+`generate_chart.py` requires matplotlib (`pip install matplotlib`). Run it
+again any time `benchmark_results.csv` changes, so the chart stays in sync
+with the latest numbers.
 
 ## Files
 
 - `src/data_structures.py` — LinkedList and ContiguousArray implementations
 - `src/benchmark.py` — benchmark harness
+- `src/generate_chart.py` — regenerates the chart from the CSV
 - `results/benchmark_results.csv` — raw timing results
 - `results/benchmark_chart.png` — traversal and random-access charts
 
